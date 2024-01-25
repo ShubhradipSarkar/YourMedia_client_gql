@@ -51,7 +51,7 @@ const YourOtherComponent = () => {
       
         
         {data && (
-        <ul>
+        <ul className='usersList'>
         {data?.users?.map((user, index) => (
           
             <RecipeReviewCard username={user.username} school={user.School} />
@@ -63,13 +63,7 @@ const YourOtherComponent = () => {
         
       )}
       
-      <h1>.</h1>
-      <h1>.</h1>
-      <h1>.</h1>
-      <h1>.</h1>
-      <h1>.</h1>
-      <h1>.</h1>
-      <h1>.</h1>
+      
       <a href="/test">Form test</a>
       <LabelBottomNavigation/>
       
