@@ -1,22 +1,37 @@
-import React, { useEffect } from "react";
-import { useQuery, gql } from "@apollo/client";
-import {LOAD_DATA} from "../GraphQL/Queries";
+// YourOtherComponent.js
 
-function GetUsers(){
+import React, { useEffect } from 'react';
+import { useQuery } from '@apollo/client';
+import client from '../Apollo';
+import { gql } from '@apollo/client';
 
-    const {error, loading, data}=useQuery(LOAD_DATA);
+const YourOtherComponent = () => {
+  
 
-    useEffect(()=>{
-        console.log(data);
-    },[data]);
+  // Your GraphQL query
+  const YOUR_GRAPHQL_QUERY =gql`
+  query pako{
+    hello
+  }
+  `
 
-    return (
-        <div>
-            <h1>Hisdfgh</h1>
-        </div>
-    )
-    
-    
-}
+  const { loading, error, data } = useQuery(YOUR_GRAPHQL_QUERY, { client });
 
-export default GetUsers;
+  useEffect(() => {
+    if (loading) {
+      console.log('Loading...');
+    } else if (error) {
+      console.error('Error:', error);
+    } else {
+      console.log('Data:', data);
+    }
+  }, [loading, error, data]);
+
+  return (
+    <div>
+      {/* Your component rendering logic */}
+    </div>
+  );
+};
+
+export default YourOtherComponent;

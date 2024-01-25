@@ -11,3 +11,27 @@ query {
     
   }
 `;
+
+export const SearchUserWithId = gql`
+query {
+  user(id: "65a8006c12218359556d104c"){
+    id
+    username
+    friends{
+      username
+    }
+    posts{
+      message
+      likes{
+        username
+      }
+      Comments{
+        commenter{
+          username
+        }
+        comment
+      }
+    }
+  }
+}
+`
