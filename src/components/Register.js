@@ -30,6 +30,8 @@ function Register(){
             <input type="email" value={email} placeholder="Enter Email" onChange={(e)=>{SetEmail(e.target.value)}}/>
             <input type="password" value={password} placeholder="Enter Password" onChange={(e)=>{SetPassword(e.target.value)}}/>
             <button onClick={RegisterUser}>Register User</button>
+
+            <a href="/">Login here</a>
         </div>
     )
 }

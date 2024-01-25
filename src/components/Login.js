@@ -32,6 +32,8 @@ function Login(){
             <input type="email" value={email} placeholder="Enter Email" onChange={(e)=>{SetEmail(e.target.value)}}/>
             <input type="password" value={password} placeholder="Enter Password" onChange={(e)=>{SetPassword(e.target.value)}}/>
             <button onClick={LoginUser}>Login</button>
+
+            <a href="/register">Register here</a>
         </div>
     )
 }
