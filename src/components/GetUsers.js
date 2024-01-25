@@ -6,6 +6,8 @@ import client from '../Apollo';
 import { gql } from '@apollo/client';
 import { SearchUserWithId } from '../GraphQL/Queries';
 import ResponsiveAppBar from './decorations/Navbar'
+//import SimpleBottomNavigation from './decorations/Footer';
+import LabelBottomNavigation from './decorations/Footer';
 
 const YourOtherComponent = () => {
   
@@ -43,6 +45,16 @@ const YourOtherComponent = () => {
           <p>{data.hello}</p>
         </div>
       )}
+      
+      <h1>.</h1>
+      <h1>.</h1>
+      <h1>.</h1>
+      <h1>.</h1>
+      <h1>.</h1>
+      <h1>.</h1>
+      <h1>.</h1>
+      
+      <LabelBottomNavigation/>
     </div>
   );
 };

@@ -8,7 +8,7 @@ function Home(){
             
             {/* <GetUsers/> */}
             <YourOtherComponent/>
-            <h1>Hey</h1>
+            
         </div>
     )
 }
