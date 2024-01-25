@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 function Login(){
     const [email, SetEmail] = useState("");
     const [password, SetPassword] = useState("");
-    const LoginAPI = 'http://localhost:4000/auth/login/';
+    const LoginAPI = 'https://graphqlserveryourmedia-production.up.railway.app/auth/login/';
     const navigate = useNavigate();
 
     const LoginUser=async()=>{

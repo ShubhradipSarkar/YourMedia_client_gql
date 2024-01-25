@@ -6,7 +6,7 @@ function Register(){
     const [name, SetName] = useState("");
     const [email, SetEmail] = useState("");
     const [password, SetPassword] = useState("");
-    const RegisterAPI = 'http://localhost:4000/auth/register/';
+    const RegisterAPI = 'https://graphqlserveryourmedia-production.up.railway.app/auth/register/';
     const navigate = useNavigate();
 
     const RegisterUser=async()=>{
