@@ -8,6 +8,7 @@ import { SearchUserWithId } from '../GraphQL/Queries';
 import ResponsiveAppBar from './decorations/Navbar'
 //import SimpleBottomNavigation from './decorations/Footer';
 import LabelBottomNavigation from './decorations/Footer';
+import RecipeReviewCard from './decorations/Card';
 
 const YourOtherComponent = () => {
   
@@ -15,7 +16,9 @@ const YourOtherComponent = () => {
   // Your GraphQL query
   const YOUR_GRAPHQL_QUERY =gql`
   query pako{
-    hello
+    users{
+      username
+    }
   }
   `
 
@@ -31,7 +34,9 @@ const YourOtherComponent = () => {
     }
   }, [loading, error, data]);
 
-  console.log(localStorage.getItem('username'));
+  //console.log(data.users)
+  
+  //console.log(localStorage.getItem('username'));
 
   return (
     <div>
@@ -40,10 +45,19 @@ const YourOtherComponent = () => {
       <h1>{localStorage.getItem('username')}</h1>
       {loading && <p>Loading...</p>}
       {error && <p>Error: {error.message}</p>}
-      {data && (
-        <div>
-          <p>{data.hello}</p>
-        </div>
+      
+        
+        {data && (
+        <ul>
+        {data?.users?.map((user, index) => (
+          
+            <RecipeReviewCard username={user.username} school={user.school}/>
+            
+          
+        ))}
+      </ul>
+      
+        
       )}
       
       <h1>.</h1>
@@ -55,6 +69,7 @@ const YourOtherComponent = () => {
       <h1>.</h1>
       <a href="/test">Form test</a>
       <LabelBottomNavigation/>
+      
     </div>
   );
 };

@@ -1,9 +1,11 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import RecipeReviewCard from './Card';
 
 export default function FormPropsTextFields() {
   return (
+    <div>
     <Box
       component="form"
       sx={{
@@ -33,5 +35,10 @@ export default function FormPropsTextFields() {
       </center>
       
     </Box>
+    <div>
+      
+    </div>
+    <RecipeReviewCard/>
+    </div>
   );
 }
