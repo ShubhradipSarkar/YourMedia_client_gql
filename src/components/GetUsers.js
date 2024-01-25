@@ -17,7 +17,10 @@ const YourOtherComponent = () => {
   const YOUR_GRAPHQL_QUERY =gql`
   query pako{
     users{
+      id
       username
+      School
+
     }
   }
   `
@@ -42,7 +45,7 @@ const YourOtherComponent = () => {
     <div>
       {/* Your component rendering logic */}
       <ResponsiveAppBar/>
-      <h1>{localStorage.getItem('username')}</h1>
+      
       {loading && <p>Loading...</p>}
       {error && <p>Error: {error.message}</p>}
       
@@ -51,7 +54,7 @@ const YourOtherComponent = () => {
         <ul>
         {data?.users?.map((user, index) => (
           
-            <RecipeReviewCard username={user.username} school={user.school}/>
+            <RecipeReviewCard username={user.username} school={user.School} />
             
           
         ))}
