@@ -4,6 +4,8 @@ import React, { useEffect } from 'react';
 import { useQuery } from '@apollo/client';
 import client from '../Apollo';
 import { gql } from '@apollo/client';
+import { SearchUserWithId } from '../GraphQL/Queries';
+import ResponsiveAppBar from './decorations/Navbar'
 
 const YourOtherComponent = () => {
   
@@ -27,9 +29,20 @@ const YourOtherComponent = () => {
     }
   }, [loading, error, data]);
 
+  console.log(localStorage.getItem('username'));
+
   return (
     <div>
       {/* Your component rendering logic */}
+      <ResponsiveAppBar/>
+      <h1>{localStorage.getItem('username')}</h1>
+      {loading && <p>Loading...</p>}
+      {error && <p>Error: {error.message}</p>}
+      {data && (
+        <div>
+          <p>{data.hello}</p>
+        </div>
+      )}
     </div>
   );
 };

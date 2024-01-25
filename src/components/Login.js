@@ -17,6 +17,8 @@ function Login(){
             axios.defaults.headers.common['Authorization'] = `Bearer ${LoggedIn.data['token']}`
             console.log(LoggedIn.data);
             localStorage.setItem('token', LoggedIn.data.token);
+            localStorage.setItem('userId', LoggedIn.data.userId);
+            localStorage.setItem('username', LoggedIn.data.username);
             navigate("/Home");
         }
         catch{

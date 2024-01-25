@@ -15,7 +15,7 @@ function Register(){
                 password: password,
                 username: name,
                 email: email,
-            }).then(()=>{console.log("User Registered"); navigate("/Login")})
+            }).then(()=>{console.log("User Registered"); navigate("/")})
             .catch((err)=>{console.log("Couldn't register user", err.msg)});
         }
         catch(error){

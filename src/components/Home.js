@@ -5,9 +5,10 @@ import YourOtherComponent from "./GetUsers";
 function Home(){
     return(
         <div>
-            <h1>Piku</h1>
+            
             {/* <GetUsers/> */}
             <YourOtherComponent/>
+            <h1>Hey</h1>
         </div>
     )
 }
