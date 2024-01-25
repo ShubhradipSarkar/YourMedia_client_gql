@@ -5,7 +5,7 @@ import CardHeader from '@mui/material/CardHeader';
 
 import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
-
+import { useMutation } from '@apollo/client';
 import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
@@ -15,11 +15,29 @@ import ShareIcon from '@mui/icons-material/Share';
 import { Button } from '@mui/material';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import client from '../../Apollo';
+import { ADD_FRIEND_MUTATION } from '../../GraphQL/Mutations';
 
 export default function RecipeReviewCard(props) {
-    const [buttonText, SetButtonText] = React.useState('Add Friend');
-    const AddFriend = () => {
-        SetButtonText("Chutiya akhono feature deoua hoini...");
+    const [buttonText, SetButtonText] = React.useState("Add as friend");
+    const friend = props.id;
+    //console.log(props.id);
+    const [addFriend, { loading, error }] = useMutation(ADD_FRIEND_MUTATION);
+    const AddFriend = async() => {
+        
+        try {
+            console.log(props.id);
+            const result = await addFriend({
+              variables: { user: localStorage.getItem('userId') , friend: friend },
+            });
+      
+            //console.log('Friend added:', result.data.addFriend);
+            SetButtonText("Added as friend");
+            // You can handle success logic here
+          } catch (error) {
+            //console.error('Error adding friend:', error.message);
+            SetButtonText("Couldn't add as friend");
+            // You can handle error logic here
+          }
     }
 
   return (

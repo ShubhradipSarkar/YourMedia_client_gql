@@ -51,10 +51,10 @@ const YourOtherComponent = () => {
       
         
         {data && (
-        <ul className='usersList'>
+        <ul className='usersList' >
         {data?.users?.map((user, index) => (
           
-            <RecipeReviewCard username={user.username} school={user.School} />
+            <RecipeReviewCard username={user.username} school={user.School} id={user.id} key={user.id}/>
             
           
         ))}
