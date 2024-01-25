@@ -1,6 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 
 function Login(){
     const [email, SetEmail] = useState("");
@@ -27,15 +31,42 @@ function Login(){
     }
 
     return(
-        <div>
-            <center><h1>Login Here</h1></center>
-            <input type="email" value={email} placeholder="Enter Email" onChange={(e)=>{SetEmail(e.target.value)}}/>
-            <input type="password" value={password} placeholder="Enter Password" onChange={(e)=>{SetPassword(e.target.value)}}/>
-            <button onClick={LoginUser}>Login</button>
-
-            <a href="/register">Register here</a>
+        
+        <Box
+        component="form"
+        sx={{
+          '& .MuiTextField-root': { m: 1, width: '25ch' },
+        }}
+        noValidate
+        autoComplete="off"
+        >
+        <center>
+        <div style={{ marginTop: '5%' }}>
+          
+          <TextField
+            id="outlined-password-input"
+            label="email"
+            type="email"
+            value={email}
+            onChange={(e)=>{SetEmail(e.target.value)}}
+          />
+          <TextField
+            id="outlined-password-input"
+            label="Password"
+            type="password"
+            autoComplete="current-password"
+            value={password}
+            onChange={(e)=>{SetPassword(e.target.value)}}
+          />
+          
         </div>
-    )
+        <Button variant="outlined" onClick={LoginUser}>Login</Button>
+        <a href="/register">Register here</a>
+        </center>
+        
+      </Box>
+      
+)
 }
 
 export default Login

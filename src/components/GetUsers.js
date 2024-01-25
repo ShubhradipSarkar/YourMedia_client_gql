@@ -53,7 +53,7 @@ const YourOtherComponent = () => {
       <h1>.</h1>
       <h1>.</h1>
       <h1>.</h1>
-      
+      <a href="/test">Form test</a>
       <LabelBottomNavigation/>
     </div>
   );
