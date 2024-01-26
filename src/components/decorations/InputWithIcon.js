@@ -23,6 +23,7 @@ export default function InputWithIcon() {
             });
             console.log("posted hihi");
             SetThought("")
+            window.location.reload();
           } catch (error) {
             
           }
