@@ -34,7 +34,7 @@ function FriendRqst(){
     return(
         <div>
       <ResponsiveAppBar />
-      
+      <div  style={{marginTop: '60px'}}>
       {loading && <p>Loading...</p>}
       {error && <p>Error: {error.message}</p>}
       {data && data.user && (
@@ -54,6 +54,7 @@ function FriendRqst(){
           )}
         </div>
       )}
+      </div>
       <LabelBottomNavigation />
     </div>
     )

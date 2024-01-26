@@ -41,7 +41,7 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position="fixed" style={{background: 'linear-gradient(to right bottom, #121858, #c51162)', zIndex: '1'}}>
+    <AppBar position="fixed" style={{background: 'linear-gradient(to right bottom, #121858, #c51162)', zIndex: 1100}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />

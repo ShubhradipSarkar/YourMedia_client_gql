@@ -37,7 +37,10 @@ const Feed = () => {
     return (
         <div>
             <ResponsiveAppBar/>
-                <InputWithIcon/>
+            <div style={{marginTop:'60px'}}>
+            <InputWithIcon/>
+            </div>
+                
             <LabelBottomNavigation/>
         </div>
     )

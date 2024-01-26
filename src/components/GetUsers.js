@@ -6,6 +6,7 @@ import ResponsiveAppBar from './decorations/Navbar'
 import LabelBottomNavigation from './decorations/Footer';
 import RecipeReviewCard from './decorations/Card';
 
+
 const YourOtherComponent = () => {
   // Your GraphQL query
   const YOUR_GRAPHQL_QUERY =gql`
@@ -32,8 +33,10 @@ const YourOtherComponent = () => {
   return (
     <div>
       <ResponsiveAppBar/>
+      
+      <div style={{marginTop: '60px'}}>
       {loading && <p>Loading...</p>}
-      {error && <p>Error: {error.message}</p>}
+      {error && <p>An error occured! Refresh Page</p>}
       {data && (
         <ul className='usersList' >
         {data?.users?.map((user, index) => (
@@ -41,6 +44,8 @@ const YourOtherComponent = () => {
         ))}
         </ul>
       )}
+      </div>
+      
       <a href="/test">Form test</a>
       <a href="/test1">nav test</a>
       <LabelBottomNavigation/>

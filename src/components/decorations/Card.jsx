@@ -16,9 +16,11 @@ import { Button } from '@mui/material';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import client from '../../Apollo';
 import { ADD_FRIEND_MUTATION } from '../../GraphQL/Mutations';
+import DeleteRoundedIcon from '@mui/icons-material/DeleteRounded';
 
 export default function RecipeReviewCard(props) {
     const [buttonText, SetButtonText] = React.useState("Connect+");
+    const [removeButton, SetRemoveButton] = React.useState('Remove-');
     const friend = props.id;
     //console.log(props.id);
     const [addFriend, { loading, error }] = useMutation(ADD_FRIEND_MUTATION);
@@ -40,14 +42,14 @@ export default function RecipeReviewCard(props) {
           }
     }
     const RemoveItem = async() => {
-        
+        SetRemoveButton("Feature comming soon")
     }
   return (
     <Card sx={{ maxWidth: '75%', margin: '7%' }}>
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            {props.username[0]}
+           <b>{props.username[0]}</b> 
           </Avatar>
         }
         // action={
@@ -55,7 +57,7 @@ export default function RecipeReviewCard(props) {
         //     <MoreVertIcon />
         //   </IconButton>
         // }
-        title={props.username}
+        title=<b>{props.username}</b>
         subheader={props.school}
       />
       
@@ -72,7 +74,7 @@ export default function RecipeReviewCard(props) {
           <ShareIcon />
         </IconButton> */}
         <Button variant="contained" onClick={AddFriend} style={{margin:'3%' ,width:'100px',height:'37px',  background: 'linear-gradient(to right bottom, #121858, #121858)'}}>{buttonText}</Button>
-        <Button variant="contained" onClick={RemoveItem} style={{background: 'linear-gradient(to right bottom, #c51162, #c51162)'}}>Remove-</Button>
+        <Button variant="contained" onClick={RemoveItem} style={{background: 'linear-gradient(to right bottom, #c51162, #c51162)'}}>{removeButton}</Button>
       </CardActions>
       
     </Card>
