@@ -4,6 +4,7 @@ import client from "../../Apollo";
 import { gql } from "@apollo/client";
 import { useQuery } from "@apollo/client";
 import { useEffect } from "react";
+import RecipeReviewCard from "../decorations/Card";
 
 function FriendRqst(){
     const userId = localStorage.getItem('userId').toString();
@@ -29,13 +30,32 @@ function FriendRqst(){
           console.log('Data:', data);
         }
       }, [loading, error, data]);
-
+    
     return(
         <div>
-            <ResponsiveAppBar/>
-                <h1>{userId}</h1>
-            <LabelBottomNavigation/>
+      <ResponsiveAppBar />
+      
+      {loading && <p>Loading...</p>}
+      {error && <p>Error: {error.message}</p>}
+      {data && data.user && (
+        <div>
+          
+          {data.user.friendRequests && data.user.friendRequests.length > 0 && (
+            <div>
+              <h2>Friend Requests:</h2>
+              <ul>
+                {data.user.friendRequests
+                  .filter((request) => request !== null)
+                  .map((request, index) => (
+                    <li key={index}>{request.username}</li>
+                  ))}
+              </ul>
+            </div>
+          )}
         </div>
+      )}
+      <LabelBottomNavigation />
+    </div>
     )
 }
 

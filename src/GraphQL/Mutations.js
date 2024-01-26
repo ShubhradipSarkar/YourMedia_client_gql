@@ -10,3 +10,12 @@ export const ADD_FRIEND_MUTATION = gql`
   }
 `;
 
+export const ADD_POST = gql`
+  mutation AddPost($user: String!, $message: String!, $createdAt: String!){
+    addPost(user: $user, message: $message, createdAt: $createdAt){
+        user
+        message
+        createdAt
+    }
+  }
+`

@@ -14,7 +14,11 @@ export default function LabelBottomNavigation() {
   };
 
   return (
-    <BottomNavigation  value={value} onChange={handleChange}>
+    <BottomNavigation  style={{
+        position: 'fixed',
+        bottom: 0,
+        width: '100%', // Full width of the viewport
+      }}value={value} onChange={handleChange} >
       <BottomNavigationAction
         label="Recents"
         value="recents"
