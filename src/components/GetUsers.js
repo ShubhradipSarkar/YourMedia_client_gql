@@ -40,7 +40,7 @@ const YourOtherComponent = () => {
       {data && (
         <ul className='usersList' >
         {data?.users?.map((user, index) => (
-          <RecipeReviewCard username={user.username} school={user.School} id={user.id} key={user.id}/>
+          <RecipeReviewCard username={user.username} school={user.School} id={user.id} key={user.id} buttonText={"Connect+"} buttonTextAfterAction={"Connecting..."} reloadPage={"0"}/>
         ))}
         </ul>
       )}

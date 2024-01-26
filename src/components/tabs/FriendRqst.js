@@ -5,6 +5,7 @@ import { gql } from "@apollo/client";
 import { useQuery } from "@apollo/client";
 import { useEffect } from "react";
 import RecipeReviewCard from "../decorations/Card";
+//import RecipeReviewCard from "../decorations/Card";
 
 function FriendRqst(){
     const userId = localStorage.getItem('userId').toString();
@@ -14,6 +15,7 @@ function FriendRqst(){
       user(id: $userId) {
         username
         friendRequests {
+            id
           username
         }
       }
@@ -42,12 +44,13 @@ function FriendRqst(){
           
           {data.user.friendRequests && data.user.friendRequests.length > 0 && (
             <div>
-              <h2>Friend Requests:</h2>
+              <h4 style={{color:'#380466', padding: '5px'}}>Friend Requests</h4>
               <ul>
                 {data.user.friendRequests
                   .filter((request) => request !== null)
                   .map((request, index) => (
-                    <li key={index}>{request.username}</li>
+                    // <li key={index}>{request.username}</li>
+                    <RecipeReviewCard username={request.username} school={request.School} id={request.id} key={request.id} buttonText={"Accept"} buttonTextAfterAction={"Accepted.."} reloadPage={"1"}/>
                   ))}
               </ul>
             </div>
