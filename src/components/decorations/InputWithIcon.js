@@ -21,7 +21,7 @@ export default function InputWithIcon() {
             const result = await addPost({
               variables: { user: userId, message: thought, createdAt: time},
             });
-            console.log("posted");
+            console.log("posted hihi");
           } catch (error) {
             
           }
