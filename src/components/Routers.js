@@ -19,7 +19,7 @@ function MakeRoutes(){
                 <Route path = '/test1' element = {<ResponsiveAppBar1/>}/>
                 <Route path = '/Requests' element = {<FriendRqst/>}/>
                 <Route path = '/Feed' element = {<Feed/>}/>
-                
+                <Route path = '/Users' element = {<Home/>}/>
             </Routes>
         </BrowserRouter>
     )

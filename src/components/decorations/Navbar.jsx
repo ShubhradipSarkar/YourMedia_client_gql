@@ -15,7 +15,7 @@ import AdbIcon from '@mui/icons-material/Adb';
 import { Link } from 'react-router-dom';
 import { deepOrange } from '@mui/material/colors';
 
-const pages = ['Requests', 'Feed', 'Blog'];
+const pages = ['Requests', 'Feed', 'Users'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function ResponsiveAppBar() {
@@ -41,7 +41,7 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position="static" style={{background: 'linear-gradient(to right bottom, #121858, #c51162)'}}>
+    <AppBar position="fixed" style={{background: 'linear-gradient(to right bottom, #121858, #c51162)', zIndex: '1'}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />

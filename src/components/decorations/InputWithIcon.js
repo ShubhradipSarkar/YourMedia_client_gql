@@ -22,13 +22,14 @@ export default function InputWithIcon() {
               variables: { user: userId, message: thought, createdAt: time},
             });
             console.log("posted hihi");
+            SetThought("")
           } catch (error) {
             
           }
     }
 
     return (
-        <Box sx={{ '& > :not(style)': {margin: 'auto', width: '50%' }, my: 2}}>
+        <Box sx={{ '& > :not(style)': {margin: 'auto', width: '65%' }, my: 2}}>
             <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
                 <AccountCircle sx={{ color: `${deepOrange}`, mr: 1, my: 0.5 }} />
                 <TextField id="input-with-sx" label="Post your thoughts" variant="standard"

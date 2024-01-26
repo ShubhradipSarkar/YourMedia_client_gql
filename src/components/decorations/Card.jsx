@@ -18,7 +18,7 @@ import client from '../../Apollo';
 import { ADD_FRIEND_MUTATION } from '../../GraphQL/Mutations';
 
 export default function RecipeReviewCard(props) {
-    const [buttonText, SetButtonText] = React.useState("Add as friend");
+    const [buttonText, SetButtonText] = React.useState("Connect+");
     const friend = props.id;
     //console.log(props.id);
     const [addFriend, { loading, error }] = useMutation(ADD_FRIEND_MUTATION);
@@ -31,7 +31,7 @@ export default function RecipeReviewCard(props) {
             });
       
             //console.log('Friend added:', result.data.addFriend);
-            SetButtonText("Added as friend");
+            SetButtonText("Connecting...");
             // You can handle success logic here
           } catch (error) {
             //console.error('Error adding friend:', error.message);
@@ -39,37 +39,40 @@ export default function RecipeReviewCard(props) {
             // You can handle error logic here
           }
     }
-
+    const RemoveItem = async() => {
+        
+    }
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: '75%', margin: '7%' }}>
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
             {props.username[0]}
           </Avatar>
         }
-        action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
-        }
+        // action={
+        //   <IconButton aria-label="settings">
+        //     <MoreVertIcon />
+        //   </IconButton>
+        // }
         title={props.username}
-        subheader="September 14, 2016"
+        subheader={props.school}
       />
       
-      <CardContent>
+      {/* <CardContent>
         <Typography variant="body2" color="text.secondary">
           {props.school}
         </Typography>
-      </CardContent>
+      </CardContent> */}
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
+        {/* <IconButton aria-label="add to favorites">
           <FavoriteIcon />
         </IconButton>
         <IconButton aria-label="share">
           <ShareIcon />
-        </IconButton>
-        <Button variant="contained" onClick={AddFriend}>{buttonText}</Button>
+        </IconButton> */}
+        <Button variant="contained" onClick={AddFriend} style={{margin:'3%' ,width:'100px',height:'37px',  background: 'linear-gradient(to right bottom, #121858, #121858)'}}>{buttonText}</Button>
+        <Button variant="contained" onClick={RemoveItem} style={{background: 'linear-gradient(to right bottom, #c51162, #c51162)'}}>Remove-</Button>
       </CardActions>
       
     </Card>
