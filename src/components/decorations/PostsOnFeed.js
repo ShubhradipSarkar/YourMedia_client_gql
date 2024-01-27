@@ -20,7 +20,7 @@ import { pink } from '@mui/material/colors';
 import { useMutation } from '@apollo/client';
 import client from '../../Apollo';
 import { gql } from '@apollo/client';
-import { ADD_LIKE } from '../../GraphQL/Mutations';
+import { ADD_LIKE, REMOVE_LIKE } from '../../GraphQL/Mutations';
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -55,6 +55,7 @@ export default function PostsOnFeed({name, postId, post, time, likes, comments, 
       setExpanded(!expanded);
     };
     const [addlike, {loading, error}] = useMutation(ADD_LIKE)
+    const [deletelike, {loadingR, errorR}] = useMutation(REMOVE_LIKE)
     const handelLikeClick = async() => {
       SetLikeCount(likeCount+likestate);
       SetGlowLiked()
@@ -67,18 +68,33 @@ export default function PostsOnFeed({name, postId, post, time, likes, comments, 
         SetLikeState(1);
         SetGlowLiked()
       }
-
-      try {
+      if(glowLiked===pink[500]){
+        try {
             
-        const result = await addlike({
-          variables: { post_id: postId, liked_by: userId},
-        });
-        console.log("Liked");
-        //SetThought("")
-        //window.location.reload();
-      } catch (error) {
-        
+          const result = await deletelike({
+            variables: { post_id: postId, liked_by: userId},
+          });
+          console.log(result.message);
+          //SetThought("")
+          //window.location.reload();
+        } catch (error) {
+          
+        }
       }
+      else{
+        try {
+            
+          const result = await addlike({
+            variables: { post_id: postId, liked_by: userId},
+          });
+          console.log("Liked");
+          //SetThought("")
+          //window.location.reload();
+        } catch (error) {
+          
+        }
+      }
+      
       
     }
   

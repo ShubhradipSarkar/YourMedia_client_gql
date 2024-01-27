@@ -28,3 +28,12 @@ export const ADD_LIKE = gql`
     }
   }
 `
+
+export const REMOVE_LIKE = gql`
+mutation RemoveLikes($post_id: String!, $liked_by: String!){
+  removeLikes(post_id: $post_id, liked_by: $liked_by){
+      success
+      message
+  }
+}
+`
