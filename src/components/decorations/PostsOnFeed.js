@@ -40,28 +40,28 @@ export default function PostsOnFeed({name, post, time}) {
         <CardHeader style={{textAlign:'left'}}
           avatar={
             <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-              R
+              {name[0]+name[1]}
             </Avatar>
           }
           action={
-            <IconButton aria-label="settings">
+            <IconButton aria-label="settings" onClick={()=>{alert("feature comming soon");console.log("feature comming soon")}}>
               <MoreVertIcon />
             </IconButton>
           }
-          title={name}
-          subheader={time}
+          title=<b>{name}</b>
+          subheader=""
         />
         
-        <CardContent>
+        <CardContent style={{background:'linear-gradient(to right bottom, #af3af2, #f73bdb)', color:'#ffffff'}}>
           <Typography variant="body2" color="text.secondary">
-            {post}
+            <h2 style={{color: '#ffffff'}}>{post}</h2>
           </Typography>
         </CardContent>
         <CardActions disableSpacing>
-          <IconButton aria-label="add to favorites">
+          <IconButton aria-label="add to favorites" onClick={()=>{alert("feature comming soon");console.log("feature comming soon")}}>
             <FavoriteIcon />
           </IconButton>
-          <IconButton aria-label="share">
+          <IconButton aria-label="share" onClick={()=>{alert("feature comming soon");console.log("feature comming soon")}}>
             <ShareIcon />
           </IconButton>
           <ExpandMore
