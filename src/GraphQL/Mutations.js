@@ -19,3 +19,12 @@ export const ADD_POST = gql`
     }
   }
 `
+
+export const ADD_LIKE = gql`
+  mutation AddLikes($liked_by: String!, $post_id: String!){
+    addLikes(post_id: $post_id, liked_by: $liked_by){
+        post_id
+        liked_by
+    }
+  }
+`

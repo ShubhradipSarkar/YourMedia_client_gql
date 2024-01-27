@@ -12,12 +12,15 @@ export default function Posts() {
     query GetPosts($userId: String!) {
       user(id: $userId) {
         Feed{
+            id
             message
             user{
+                id
                 username
             }
             createdAt
             likes{
+                id
                 username
             }
             Comments{
@@ -51,14 +54,23 @@ export default function Posts() {
       {data &&
         data.user &&
         data.user.Feed &&
-        data.user.Feed.map((post, index) => (
-          <div key={index}>
-            <PostsOnFeed name={post.user.username} post={post.message} time={post.createdAt}/>
-            {/* <h3>{post.user.username}</h3>
-            <p>{post.message}</p> */}
-            
-          </div>
-        ))}
+        data.user.Feed.map((post, index) => {
+          const userLikedPost = post.likes.some((like) => like.id === userId);
+
+          return (
+            <div key={index}>
+              <PostsOnFeed
+                name={post.user.username}
+                postId={post.id}
+                post={post.message}
+                time={post.createdAt}
+                likes={post.likes.length}
+                comments={post.Comments.length}
+                userLiked={userLikedPost ? 1 : 0}
+              />
+            </div>
+          );
+        })}
     </div>
   )
 }
