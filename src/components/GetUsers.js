@@ -8,17 +8,22 @@ import RecipeReviewCard from './decorations/Card';
 
 
 const YourOtherComponent = () => {
+  const userId = localStorage.getItem('userId');
   // Your GraphQL query
   const YOUR_GRAPHQL_QUERY =gql`
-  query pako{
-    users{
-      id
-      username
-      School
+  query all($userId: String!){
+    user(id: $userId){
+      users{
+        id
+        username
+        School
+        presentInFriends
+      }
     }
+    
   }
   `
-  const { loading, error, data } = useQuery(YOUR_GRAPHQL_QUERY, { client });
+  const { loading, error, data } = useQuery(YOUR_GRAPHQL_QUERY,{variables: {userId: userId}}, { client });
 
   useEffect(() => {
     if (loading) {
@@ -39,8 +44,9 @@ const YourOtherComponent = () => {
       {error && <p>An error occured! Refresh Page</p>}
       {data && (
         <ul className='usersList' >
-        {data?.users?.map((user, index) => (
-          <RecipeReviewCard username={user.username} school={user.School} id={user.id} key={user.id} buttonText={"Connect+"} buttonTextAfterAction={"Connecting..."} reloadPage={"0"}/>
+        {data?.user?.users?.map((user, index) => (
+          
+          <RecipeReviewCard username={user.username} school={user.School} id={user.id} key={user.id} buttonText={user.presentInFriends} buttonTextAfterAction={"Connecting..."} reloadPage={"0"}/>
         ))}
         </ul>
       )}
