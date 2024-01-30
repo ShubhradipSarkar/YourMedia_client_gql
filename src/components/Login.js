@@ -5,7 +5,7 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-
+import "./Login.css";
 function Login(){
     const [email, SetEmail] = useState("");
     const [password, SetPassword] = useState("");
@@ -32,7 +32,7 @@ function Login(){
 
     return(
         
-        <Box
+      <Box className="box"
         component="form"
         sx={{
           '& .MuiTextField-root': { m: 1, width: '25ch' },
@@ -40,28 +40,32 @@ function Login(){
         noValidate
         autoComplete="off"
         >
-        <center>
-        <div style={{ marginTop: '5%' }}>
-          
-          <TextField
-            id="outlined-email-input"
-            label="email"
-            type="email"
-            value={email}
-            onChange={(e)=>{SetEmail(e.target.value)}}
-          />
-          <TextField
-            id="outlined-password-input"
-            label="Password"
-            type="password"
-            autoComplete="current-password"
-            value={password}
-            onChange={(e)=>{SetPassword(e.target.value)}}
-          />
-          
-        </div>
-        <Button variant="outlined" onClick={LoginUser}>Login</Button>
-        <a href="/register">Register here</a>
+        <center className="center">
+          <h1 className="heading">Log In</h1>
+          <div className="input" style={{ marginTop: '5%' }}>
+            
+            <TextField
+              className="email"
+              id="outlined-email-input"
+              label="email"
+              type="email"
+              value={email}
+              onChange={(e)=>{SetEmail(e.target.value)}}
+            />
+            <i class='bx bxs-user'></i>
+            <TextField
+              className="password"
+              id="outlined-password-input"
+              label="Password"
+              type="password"
+              autoComplete="current-password"
+              value={password}
+              onChange={(e)=>{SetPassword(e.target.value)}}
+            />
+            
+          </div>
+          <Button className="btn" variant="outlined" onClick={LoginUser}>Login</Button>
+          <p className="register">Don't have an account?<span><a href="/register" className="span">Register here</a></span></p>
         </center>
         
       </Box>
