@@ -5,9 +5,15 @@ import FolderIcon from '@mui/icons-material/Folder';
 import RestoreIcon from '@mui/icons-material/Restore';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
+import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
+import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
+import PersonAddAltOutlinedIcon from '@mui/icons-material/PersonAddAltOutlined';
 
 export default function LabelBottomNavigation() {
   const [value, setValue] = React.useState('recents');
+  const navigate = useNavigate();
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -20,19 +26,23 @@ export default function LabelBottomNavigation() {
         width: '100%', // Full width of the viewport
       }}value={value} onChange={handleChange} >
       <BottomNavigationAction
-        label="Recents"
-        value="recents"
-        icon={<RestoreIcon />}
+        label="Posts"
+        value="Home"
+        // onClick={navigate('/Feed')}
+        component={Link} to="/Feed" 
+        icon={<HomeRoundedIcon />}
       />
       <BottomNavigationAction
-        label="Favorites"
+        label="Users"
         value="favorites"
-        icon={<FavoriteIcon />}
+        component={Link} to="/Users"
+        icon={<PeopleAltOutlinedIcon />}
       />
       <BottomNavigationAction
-        label="Nearby"
+        label="Friend Requests"
         value="nearby"
-        icon={<LocationOnIcon />}
+        component={Link} to="/Requests"
+        icon={<PersonAddAltOutlinedIcon />}
       />
       <BottomNavigationAction label="Folder" value="folder" icon={<FolderIcon />} />
     </BottomNavigation>
