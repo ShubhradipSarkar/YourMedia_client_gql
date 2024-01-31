@@ -173,6 +173,7 @@ function ResponsiveAppBar1() {
         </Toolbar>
       </Container>
     </AppBar>
+    
   );
 }
 export default ResponsiveAppBar1;

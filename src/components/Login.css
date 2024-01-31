@@ -6,7 +6,7 @@
 .box{
     height: 100vh;
     width: 100vw;
-    background: url("https://cdn.thecodehelp.in/Jaipur.jpeg") no-repeat;
+    background: url("3357684.jpg") no-repeat;
     background-size: cover;
     background-position: center;
     display: flex;
@@ -16,11 +16,11 @@
 .center{
     background: transparent;
     border: 2px solid rgba(255, 255, 255, .2);
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(5px);
     box-shadow: 0 0 10px rgba(0, 0, 0, .2);
     color: #fff;
-    height: 300px;
-    width: 300px;
+    height: 400px;
+    width: 400px;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -7,6 +7,8 @@ import FormPropsTextFields from "./decorations/Forms";
 import ResponsiveAppBar1 from "./decorations/Testnav";
 import FriendRqst from "./tabs/FriendRqst";
 import Feed from "./tabs/Feed";
+import FullWidthGrid from "./decorations/TestGrid";
+import Appa from "./decorations/alertTest";
 
 function MakeRoutes(){
     return(
@@ -17,6 +19,8 @@ function MakeRoutes(){
                 <Route path = '/Home' element = {<Home/>}/>
                 <Route path = '/test' element = {<FormPropsTextFields/>}/>
                 <Route path = '/test1' element = {<ResponsiveAppBar1/>}/>
+                <Route path = '/test2' element = {<FullWidthGrid/>}/>
+                <Route path = '/test3' element = {<Appa/>}/>
                 <Route path = '/Requests' element = {<FriendRqst/>}/>
                 <Route path = '/Feed' element = {<Feed/>}/>
                 <Route path = '/Users' element = {<Home/>}/>

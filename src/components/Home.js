@@ -6,7 +6,7 @@ function Home(){
     return(
         <div>
             
-            {/* <GetUsers/> */}
+            
             <YourOtherComponent/>
             
         </div>

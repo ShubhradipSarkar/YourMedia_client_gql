@@ -41,19 +41,23 @@ function Login(){
         autoComplete="off"
         >
         <center className="center">
-          <h1 className="heading">Log In</h1>
-          <div className="input" style={{ marginTop: '5%' }}>
+          <h2 className="heading">Login</h2>
+          <div className="input" style={{ marginTop: '5%' , marginBottom: '5%'}}>
             
             <TextField
+            sx={{ input: { color: '#ffffff' }}}
               className="email"
               id="outlined-email-input"
-              label="email"
+              label="Email"
               type="email"
               value={email}
+              
+              
               onChange={(e)=>{SetEmail(e.target.value)}}
             />
-            <i class='bx bxs-user'></i>
+            <i className='bx bxs-user'></i>
             <TextField
+            sx={{ input: { color: '#ffffff' } }}
               className="password"
               id="outlined-password-input"
               label="Password"

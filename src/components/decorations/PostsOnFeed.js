@@ -52,7 +52,7 @@ export default function PostsOnFeed({name, postId, post, time, likes, comments, 
     
     //console.log(formattedDate)
     const handleExpandClick = () => {
-      setExpanded(!expanded);
+      
     };
     const [addlike, {loading, error}] = useMutation(ADD_LIKE)
     const [deletelike, {loadingR, errorR}] = useMutation(REMOVE_LIKE)
