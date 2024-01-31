@@ -29,6 +29,16 @@ export const ADD_LIKE = gql`
   }
 `
 
+export const ADD_COMMENT = gql`
+  mutation AddComment($comment: String!, $post_id: String!, $commented_by: String!){
+    addComments(comment: $comment, post_id: $post_id, commented_by: $commented_by){
+        comment
+        post_id
+        commented_by
+    }
+  }
+`
+
 export const REMOVE_LIKE = gql`
 mutation RemoveLikes($post_id: String!, $liked_by: String!){
   removeLikes(post_id: $post_id, liked_by: $liked_by){

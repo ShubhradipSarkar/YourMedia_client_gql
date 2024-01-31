@@ -8,6 +8,7 @@ import Button from '@mui/material/Button';
 import "./Login.css";
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import YourOtherComponent from './GetUsers'
 
 function Login(){
     const [email, SetEmail] = useState("");
@@ -15,6 +16,7 @@ function Login(){
     const LoginAPI = 'https://graphqlserveryourmedia-production.up.railway.app/auth/login/';
     const navigate = useNavigate();
     const [showPassword, setShowPassword] = React.useState(false);
+    const [passId, SetPassId] = useState("");
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -30,6 +32,7 @@ function Login(){
                 password: password,
             })
             axios.defaults.headers.common['Authorization'] = `Bearer ${LoggedIn.data['token']}`
+            SetPassId(LoggedIn.data.userId);
             console.log(LoggedIn.data);
             localStorage.setItem('token', LoggedIn.data.token);
             localStorage.setItem('userId', LoggedIn.data.userId);
@@ -56,6 +59,9 @@ function Login(){
           <div className="input" style={{ marginTop: '5%' , marginBottom: '5%'}}>
             
             <TextField
+            InputProps={{
+              style: { borderColor: 'white' },
+            }}
             sx={{ input: { color: '#ffffff' }}}
               className="email"
               id="outlined-email-input"

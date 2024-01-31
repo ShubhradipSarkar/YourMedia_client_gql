@@ -5,9 +5,11 @@ import { gql } from '@apollo/client';
 import ResponsiveAppBar from './decorations/Navbar'
 import LabelBottomNavigation from './decorations/Footer';
 import RecipeReviewCard from './decorations/Card';
+import { Box } from '@mui/material';
+//import {passId} from './Login.js';
 
+const YourOtherComponent = ({passId}) => {
 
-const YourOtherComponent = () => {
   const userId = localStorage.getItem('userId');
   // Your GraphQL query
   const YOUR_GRAPHQL_QUERY =gql`
@@ -39,7 +41,8 @@ const YourOtherComponent = () => {
     <div>
       <ResponsiveAppBar/>
       
-      <div style={{marginTop: '60px'}}>
+      <Box >
+      <div style={{marginTop: '60px'}} >
       {loading && <p>Loading...</p>}
       {error && <p>An error occured! Refresh Page</p>}
       {data && (
@@ -54,6 +57,7 @@ const YourOtherComponent = () => {
       
       <a href="/test">Form test</a>
       <a href="/test1">nav test</a>
+      </Box>
       <LabelBottomNavigation/>
     </div>
   );

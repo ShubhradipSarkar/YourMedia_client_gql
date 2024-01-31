@@ -16,7 +16,7 @@ function Register(){
     const RegisterAPI = 'https://graphqlserveryourmedia-production.up.railway.app/auth/register/';
     const navigate = useNavigate();
     const [showPassword, setShowPassword] = React.useState(false);
-
+    const [focused, setFocused] = useState(false);
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
   const handleMouseDownPassword = (event) => {
@@ -55,9 +55,9 @@ function Register(){
         <TextField
             id="outlined-name-input"
             label="Name"
-            
+            sx={{ input: { color: '#ffffff' }}}
       InputProps={{
-        style: { color: 'blue', borderBottomColor: 'blue' },
+        style: {  borderColor:'white' },
       }}
             type="name"
             value={name}
@@ -67,13 +67,23 @@ function Register(){
             id="outlined-email-input"
             label="Email"
             type="email"
+            sx={{ input: { color: '#ffffff' }}}
             value={email}
             onChange={(e)=>{SetEmail(e.target.value)}}
         />
         <TextField
             id="outlined-password-input"
             label="Password"
+            
             type="password"
+            InputProps={{
+                style: {
+                  borderColor: focused ? 'blue' : 'white',
+                },
+              }}
+              onFocus={() => setFocused(true)}
+              onBlur={() => setFocused(false)}
+            sx={{ input: { color: '#ffffff' }}}
             autoComplete="current-password"
             value={password}
             onChange={(e)=>{SetPassword(e.target.value)}}

@@ -21,6 +21,12 @@ import { useMutation } from '@apollo/client';
 import client from '../../Apollo';
 import { gql } from '@apollo/client';
 import { ADD_LIKE, REMOVE_LIKE } from '../../GraphQL/Mutations';
+import Button from '@mui/material/Button';
+import { Popover } from '@mui/material';
+import CommentBox from './CommentBox';
+
+import Chip from '@mui/material/Chip';
+import LikesnComments from './LikesnComments';
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -42,6 +48,29 @@ export default function PostsOnFeed({name, postId, post, time, likes, comments, 
     const userId = localStorage.getItem('userId');
 
     //console.log("is liked = ",userLiked);
+    const [anchorEl, setAnchorEl] = React.useState(null);
+    const [anchorEl2, setAnchorEl2] = React.useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const open = Boolean(anchorEl);
+  const id = open ? 'simple-popover' : undefined;
+
+  const commentOnPost=(event)=>{
+    setAnchorEl2(event.currentTarget);
+  }
+  const handleCloseCommentBox = () => {
+    setAnchorEl2(null);
+  };
+
+  const open2 = Boolean(anchorEl2);
+  const id2 = open2 ? 'simple-popover2' : undefined;
 
     React.useEffect(()=>{
       if(userLiked){
@@ -49,10 +78,12 @@ export default function PostsOnFeed({name, postId, post, time, likes, comments, 
         SetLikeState(-1);
       }
     },[])
-    
+    const openLikesComments = () => {
+
+    }
     //console.log(formattedDate)
     const handleExpandClick = () => {
-      
+
     };
     const [addlike, {loading, error}] = useMutation(ADD_LIKE)
     const [deletelike, {loadingR, errorR}] = useMutation(REMOVE_LIKE)
@@ -121,7 +152,9 @@ export default function PostsOnFeed({name, postId, post, time, likes, comments, 
             <h2 style={{color: '#ffffff'}}>{post}</h2>
           </Typography>
         </CardContent>
-        <CardActions disableSpacing>
+        <div >
+        
+        <CardActions disableSpacing >
           <IconButton aria-label="add to favorites" >
             
             
@@ -129,23 +162,53 @@ export default function PostsOnFeed({name, postId, post, time, likes, comments, 
             <FavoriteIcon sx={{ color: glowLiked }} onClick={handelLikeClick}/>
             </Badge>
           </IconButton>
-          <IconButton aria-label="share" onClick={()=>{alert("feature comming soon");console.log("feature comming soon")}}>
+          <IconButton aria-label="share" onClick={commentOnPost}>
             <Badge badgeContent={comments} color="primary">
               <ChatBubbleOutlinedIcon/>
             </Badge>
             
           </IconButton>
+          
           <ExpandMore
-            expand={expanded}
-            onClick={handleExpandClick}
-            aria-expanded={expanded}
             aria-label="show more"
           >
-            <ExpandMoreIcon />
+            
+            <Button variant='text' color='primary' onClick={handleClick}>SEE LIKES & COMMENTS</Button>
           </ExpandMore>
         </CardActions>
+        
+        </div>
+        
     
       </Card>
+      <Popover
+        id={id}
+        open={open}
+        anchorReference="anchorPosition"
+        onClose={handleClose}
+        anchorPosition={{top: 90, left: 50}}
+      >
+        <Typography sx={{ p: 2 }}>
+          
+        <Chip label="Close" variant="outlined" onDelete={handleClose} />
+        <LikesnComments postId={postId}/>
+        </Typography>
+      </Popover>
+
+      <Popover
+        id={id2}
+        open={open2}
+        anchorReference="anchorPosition"
+        onClose={handleCloseCommentBox}
+        anchorPosition={{top: 90, left: 50}}
+      >
+        <Typography sx={{ p: 2 }}>
+          
+        <Chip label="Close" variant="outlined" onDelete={handleCloseCommentBox} />
+        <CommentBox post_id = {postId}/>
+        </Typography>
+      </Popover>
+      
         </center>
 
     
