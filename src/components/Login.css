@@ -39,12 +39,18 @@
 .span{
     text-decoration: none;
     font-weight: 700;
-    color: #fff;
+    color: white;
+  animation: neon 1s infinite;
     padding: 5px;
 }
 .email{
     color: #fff;
 }
+:root {
+    --shadow-color: #FF9E9E;
+    --shadow-color-light: white;
+  }
 .btn{
     background-color: #fff;
 }
+

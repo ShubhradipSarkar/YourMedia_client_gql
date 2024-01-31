@@ -5,7 +5,9 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-
+import "./Login.css";
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
 function Register(){
     const [name, SetName] = useState("");
@@ -13,6 +15,14 @@ function Register(){
     const [password, SetPassword] = useState("");
     const RegisterAPI = 'https://graphqlserveryourmedia-production.up.railway.app/auth/register/';
     const navigate = useNavigate();
+    const [showPassword, setShowPassword] = React.useState(false);
+
+  const handleClickShowPassword = () => setShowPassword((show) => !show);
+
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
+
 
     const RegisterUser=async()=>{
         try{
@@ -31,6 +41,7 @@ function Register(){
     return(
         
         <Box
+        className="box"
         component="form"
         sx={{
         '& .MuiTextField-root': { m: 1, width: '25ch' },
@@ -38,18 +49,23 @@ function Register(){
         noValidate
         autoComplete="off"
         >
-        <center>
-        <div style={{ marginTop: '5%' }}>
+        <center className="center">
+        <h2 className="heading">Register</h2>
+        <div className="input" style={{ marginTop: '5%' , marginBottom: '5%'}}>
         <TextField
             id="outlined-name-input"
-            label="name"
+            label="Name"
+            
+      InputProps={{
+        style: { color: 'blue', borderBottomColor: 'blue' },
+      }}
             type="name"
             value={name}
             onChange={(e)=>{SetName(e.target.value)}}
         />
         <TextField
             id="outlined-email-input"
-            label="email"
+            label="Email"
             type="email"
             value={email}
             onChange={(e)=>{SetEmail(e.target.value)}}
@@ -64,8 +80,8 @@ function Register(){
         />
         
         </div>
-        <Button variant="outlined" onClick={RegisterUser}>Register User</Button>
-        <a href="/">Login here</a>
+        <Button color="primary" variant="outlined" onClick={RegisterUser}>Register</Button>
+        <p className="register">Already have an account?<span><a href="/" className="span">Login here</a></span></p>
         </center>
 
         </Box>

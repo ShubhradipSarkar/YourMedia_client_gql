@@ -6,11 +6,22 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import "./Login.css";
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
+
 function Login(){
     const [email, SetEmail] = useState("");
     const [password, SetPassword] = useState("");
     const LoginAPI = 'https://graphqlserveryourmedia-production.up.railway.app/auth/login/';
     const navigate = useNavigate();
+    const [showPassword, setShowPassword] = React.useState(false);
+
+  const handleClickShowPassword = () => setShowPassword((show) => !show);
+
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
+
 
     const LoginUser=async()=>{
         try{
@@ -68,7 +79,7 @@ function Login(){
             />
             
           </div>
-          <Button className="btn" variant="outlined" onClick={LoginUser}>Login</Button>
+          <Button color="primary" variant="outlined" onClick={LoginUser}>Login</Button>
           <p className="register">Don't have an account?<span><a href="/register" className="span">Register here</a></span></p>
         </center>
         
