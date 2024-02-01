@@ -37,6 +37,7 @@ function Login(){
             localStorage.setItem('token', LoggedIn.data.token);
             localStorage.setItem('userId', LoggedIn.data.userId);
             localStorage.setItem('username', LoggedIn.data.username);
+            await new Promise((resolve) => setTimeout(resolve, 1000));
             navigate("/Home");
         }
         catch{
