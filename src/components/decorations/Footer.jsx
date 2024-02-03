@@ -10,6 +10,7 @@ import { Link } from 'react-router-dom';
 import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import PersonAddAltOutlinedIcon from '@mui/icons-material/PersonAddAltOutlined';
+import NotificationsActiveOutlinedIcon from '@mui/icons-material/NotificationsActiveOutlined';
 
 export default function LabelBottomNavigation() {
   const [value, setValue] = React.useState('recents');
@@ -20,31 +21,37 @@ export default function LabelBottomNavigation() {
   };
 
   return (
-    <BottomNavigation  style={{
+    <BottomNavigation sx={{color: 'black'}} style={{
         position: 'fixed',
         bottom: 0,
         width: '100%', // Full width of the viewport
+        background: '#15181c',
+        zIndex: '1'
       }}value={value} onChange={handleChange} >
       <BottomNavigationAction
         label="Posts"
         value="Home"
         // onClick={navigate('/Feed')}
         component={Link} to="/Feed" 
-        icon={<HomeRoundedIcon />}
+        icon={<HomeRoundedIcon style={{ color: 'white' }}/>}
       />
       <BottomNavigationAction
         label="Users"
         value="favorites"
         component={Link} to="/Users"
-        icon={<PeopleAltOutlinedIcon />}
+        icon={<PeopleAltOutlinedIcon style={{ color: 'white' }}/>}
       />
       <BottomNavigationAction
-        label="Friend Requests"
+        label="Requests"
         value="nearby"
         component={Link} to="/Requests"
-        icon={<PersonAddAltOutlinedIcon />}
+        icon={<PersonAddAltOutlinedIcon style={{ color: 'white' }}/>}
       />
-      <BottomNavigationAction label="Folder" value="folder" icon={<FolderIcon />} />
+      <BottomNavigationAction 
+        label="Notifications" 
+        value="folder"
+        component={Link} to="/Notifications"
+        icon={<NotificationsActiveOutlinedIcon style={{ color: 'white' }}/>} />
     </BottomNavigation>
   );
 }

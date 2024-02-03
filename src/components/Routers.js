@@ -9,6 +9,7 @@ import FriendRqst from "./tabs/FriendRqst";
 import Feed from "./tabs/Feed";
 import FullWidthGrid from "./decorations/TestGrid";
 import Appa from "./decorations/alertTest";
+import Notifications from "./decorations/Notifications";
 
 function MakeRoutes(){
     return(
@@ -24,6 +25,7 @@ function MakeRoutes(){
                 <Route path = '/Requests' element = {<FriendRqst/>}/>
                 <Route path = '/Feed' element = {<Feed/>}/>
                 <Route path = '/Users' element = {<Home/>}/>
+                <Route path = '/Notifications' element = {<Notifications/>}/>
             </Routes>
         </BrowserRouter>
     )
