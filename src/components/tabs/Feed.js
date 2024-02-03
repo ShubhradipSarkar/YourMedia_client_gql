@@ -14,13 +14,18 @@ const Feed = () => {
     return (
         <div>
             <ResponsiveAppBar/>
-            <div style={{marginTop:'60px'}}>
-            <InputWithIcon/>
-            </div>
-            <div>
-                <Posts/>
-            </div>
+            <div style={{margin: 'auto',marginTop: '75px', maxWidth: '550px', boxSizing: 'border-box'}}>
+            
+            
+            <div style={{ maxWidth: '550px',margin:'50px' ,borderRadius: '15px', border: '2px solid black',}}>
+                <center>
+                <InputWithIcon/>
+                </center>
+            
                 
+            </div>
+            <Posts/>
+            </div >
             <LabelBottomNavigation/>
         </div>
     )

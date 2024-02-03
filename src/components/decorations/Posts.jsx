@@ -5,6 +5,8 @@ import client from '../../Apollo'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import PostsOnFeed from './PostsOnFeed'
+import Skeleton from '@mui/material/Skeleton';
+import Stack from '@mui/material/Stack';
 
 export default function Posts() {
     const userId = localStorage.getItem('userId').toString();
@@ -47,8 +49,40 @@ export default function Posts() {
 
   return (
     <div>
+      <center>
+      {loading && 
       
-      {loading && <p>Loading...</p>}
+      <Stack spacing={2}>
+      
+      
+      
+      <Stack direction="row" spacing={2}>
+      <Skeleton variant="circular" width={50} height={50} />
+      <Skeleton variant="rounded" width={150} height={50} margin={10}/>
+      </Stack>
+      
+      <Skeleton variant="rounded" width={300} height={160} />
+
+      <Stack direction="row" spacing={2}>
+      <Skeleton variant="circular" width={50} height={50} />
+      <Skeleton variant="rounded" width={150} height={50} margin={10}/>
+      </Stack>
+      
+      <Skeleton variant="rounded" width={300} height={160} />
+
+      <Stack direction="row" spacing={2}>
+      <Skeleton variant="circular" width={50} height={50} />
+      <Skeleton variant="rounded" width={150} height={50} margin={10}/>
+      </Stack>
+      
+      <Skeleton variant="rounded" width={300} height={160} />
+      
+      
+      
+    </Stack>
+    
+    }
+    </center>
       {error && <p>Error: {error.message}</p>}
       {/* <PostsOnFeed/> */}
       {data &&

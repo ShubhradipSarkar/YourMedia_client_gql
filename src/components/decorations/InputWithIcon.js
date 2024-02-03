@@ -30,7 +30,8 @@ export default function InputWithIcon() {
     }
 
     return (
-        <Box sx={{ '& > :not(style)': {margin: 'auto', width: '65%' }, my: 2}}>
+        <div style={{marginLeft: '45px'}}>
+            <Box sx={{ '& > :not(style)': {margin: 'auto', width: '95%' , margin:'auto'}, my: 2}}>
             <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
                 <AccountCircle sx={{ color: `${deepOrange}`, mr: 1, my: 0.5 }} />
                 <TextField id="input-with-sx" label="Post your thoughts" variant="standard"
@@ -38,5 +39,7 @@ export default function InputWithIcon() {
                 <Button onClick={AddPost}><SendOutlinedIcon/></Button>
             </Box>
         </Box>
+        </div>
+        
     );
 }
