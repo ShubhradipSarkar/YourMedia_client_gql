@@ -30,14 +30,14 @@ function Login(){
             const LoggedIn = await axios.post(LoginAPI,{
                 email: email,
                 password: password,
-            })
+            },{ timeout: 2000 })
             axios.defaults.headers.common['Authorization'] = `Bearer ${LoggedIn.data['token']}`
             SetPassId(LoggedIn.data.userId);
             console.log(LoggedIn.data);
             localStorage.setItem('token', LoggedIn.data.token);
             localStorage.setItem('userId', LoggedIn.data.userId);
             localStorage.setItem('username', LoggedIn.data.username);
-            await new Promise((resolve) => setTimeout(resolve, 1000));
+            //await new Promise((resolve) => setTimeout(resolve, 3000));
             navigate("/Home");
         }
         catch{
