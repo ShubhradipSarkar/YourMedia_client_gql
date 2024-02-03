@@ -45,42 +45,45 @@ const YourOtherComponent = ({passId}) => {
       
       <Box >
       
-      <div style={{marginTop: '100px', maxWidth: '550px', margin: '10px', marginTop: '80px'}} >
+      <div style={{marginTop: '100px', maxWidth: '550px', margin: 'auto', marginTop: '80px'}} >
+      <div style={{marginTop: '100px', maxWidth: '550px', margin: '30px'}} >
       {loading && 
       
       <Stack spacing={2}>
       
       <div style={{marginTop:'75px'}}></div>
       
-      <Stack direction="row" spacing={2} padding={10}>
+      <Stack direction="row" spacing={2}>
       <Skeleton variant="circular" width={50} height={50} />
       <Skeleton variant="rounded" width={150} height={50} margin={10}/>
       </Stack>
       
-      <Skeleton variant="rounded" width={300} height={160} />
+      <Skeleton variant="rounded" width={300} height={100} />
 
       <Stack direction="row" spacing={2}>
       <Skeleton variant="circular" width={50} height={50} />
       <Skeleton variant="rounded" width={150} height={50} margin={10}/>
       </Stack>
       
-      <Skeleton variant="rounded" width={300} height={160} />
+      <Skeleton variant="rounded" width={300} height={100} />
 
       <Stack direction="row" spacing={2}>
       <Skeleton variant="circular" width={50} height={50} />
       <Skeleton variant="rounded" width={150} height={50} margin={10}/>
       </Stack>
       
-      <Skeleton variant="rounded" width={300} height={160} />
+      <Skeleton variant="rounded" width={300} height={100} />
       
       
       
     </Stack>
     
     }
+    </div>
       {error && <p>An error occured! Refresh Page</p>}
       {data && (
         <ul className='usersList' >
+          <div style={{marginTop: '60px'}}></div>
         {data?.user?.users?.map((user, index) => (
           
           <RecipeReviewCard username={user.username} school={user.School} id={user.id} key={user.id} buttonText={user.presentInFriends} buttonTextAfterAction={"Connecting..."} reloadPage={"0"}/>

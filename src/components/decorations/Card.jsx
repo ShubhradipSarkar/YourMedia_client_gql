@@ -34,8 +34,8 @@ export default function RecipeReviewCard(props) {
         SetRemoveButton("Feature comming soon")
     }
   return (
-    <div style={{marginTop: '75px'}}>
-      <Card sx={{ maxWidth: '75%', margin: '7%' }}>
+    <div style={{marginTop: 'auto'}}>
+      <Card sx={{ maxWidth: '75%', margin: 'auto' }}>
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">

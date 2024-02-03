@@ -48,8 +48,9 @@ export default function Posts() {
       }, [loading, error, data]);
 
   return (
-    <div>
-      <center>
+    <div style={{margin: 'auto'}}>
+      
+      <div style={{marginTop: '100px', maxWidth: '550px', margin: '30px'}} >
       {loading && 
       
       <Stack spacing={2}>
@@ -82,7 +83,8 @@ export default function Posts() {
     </Stack>
     
     }
-    </center>
+    </div>
+    
       {error && <p>Error: {error.message}</p>}
       {/* <PostsOnFeed/> */}
       {data &&
