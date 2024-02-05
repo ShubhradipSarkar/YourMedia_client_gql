@@ -14,7 +14,6 @@ export default function CommentBox({post_id}) {
   const [addComment, { loading, error }] = useMutation(ADD_COMMENT);
   const AddComment = async() => {
     try {
-            
         const cmmnt = await addComment({
           variables: { commented_by: userId, comment: comment, post_id: post_id},
         });

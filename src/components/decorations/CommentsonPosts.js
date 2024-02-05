@@ -38,14 +38,7 @@ export default function CommentsonPosts({postId}) {
 
   return (
     <div>
-       {/* {
-        data?.post?.Comments?.map((comment, idx) => {
-            <h1>{console.log(comment?.commenter.username)}</h1>
-            {console.log(comment?.comment)}
-            <SmallCards username = {comment?.commenter?.username} content = {comment.comment}/>
-        })
-       } */}
-       {data && (
+      {data && (
         <ul className='usersList' >
         {data?.post?.Comments?.map((Comment, index) => (
           

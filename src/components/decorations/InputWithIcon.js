@@ -19,14 +19,14 @@ export default function InputWithIcon() {
         try {
             
             const result = await addPost({
-              variables: { user: userId, message: thought, createdAt: time},
+                variables: { user: userId, message: thought, createdAt: time},
             });
             console.log("posted hihi");
             SetThought("")
             window.location.reload();
-          } catch (error) {
+            } catch (error) {
             
-          }
+            }
     }
 
     return (
