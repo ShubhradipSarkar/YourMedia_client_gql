@@ -10,7 +10,7 @@ import Feed from "./tabs/Feed";
 import FullWidthGrid from "./decorations/TestGrid";
 import Appa from "./decorations/alertTest";
 import Notifications from "./decorations/Notifications";
-
+import ProfileDesc from "./decorations/ProfileDesc";
 function MakeRoutes(){
     return(
         <BrowserRouter>
@@ -26,6 +26,7 @@ function MakeRoutes(){
                 <Route path = '/Feed' element = {<Feed/>}/>
                 <Route path = '/Users' element = {<Home/>}/>
                 <Route path = '/Notifications' element = {<Notifications/>}/>
+                <Route path = '/userProfile' element ={<ProfileDesc />} />
             </Routes>
         </BrowserRouter>
     )

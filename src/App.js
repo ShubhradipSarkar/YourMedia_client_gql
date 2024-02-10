@@ -3,6 +3,7 @@ import {ApolloClient, InMemoryCache, ApolloProvider, HttpLink, from, gql} from '
 import MakeRoutes from './components/Routers';
 //import 'bootstrap/dist/css/bootstrap.min.css';  
 
+import ProfileDesc from "./components/decorations/ProfileDesc";
 
 
 
