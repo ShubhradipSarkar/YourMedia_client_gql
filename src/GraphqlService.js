@@ -8,7 +8,7 @@ const createApolloClient = () => {
   const token = getAuthToken();
   const client = new ApolloClient({
     cache: new InMemoryCache(),
-    uri: "https://graphqlserveryourmedia-production.up.railway.app/api",
+    uri: "https://graphql-server-yourmedia.onrender.com/app/api",
     headers:{
       authorization: token ? `Bearer ${token}`:'',
     }

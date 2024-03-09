@@ -82,7 +82,7 @@ function Login(){
   const outerTheme = useTheme();
     const [email, SetEmail] = useState("");
     const [password, SetPassword] = useState("");
-    const LoginAPI = 'https://graphqlserveryourmedia-production.up.railway.app/auth/login/';
+    const LoginAPI = 'https://graphql-server-yourmedia.onrender.com/auth/login/';
     const navigate = useNavigate();
     const [showPassword, setShowPassword] = React.useState(false);
     const [passId, SetPassId] = useState("");

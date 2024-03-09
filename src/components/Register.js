@@ -80,7 +80,7 @@ function Register(){
     const [name, SetName] = useState("");
     const [email, SetEmail] = useState("");
     const [password, SetPassword] = useState("");
-    const RegisterAPI = 'https://graphqlserveryourmedia-production.up.railway.app/auth/register/';
+    const RegisterAPI = 'https://graphql-server-yourmedia.onrender.com/app/auth/register/';
     const navigate = useNavigate();
     const [showPassword, setShowPassword] = React.useState(false);
     const [focused, setFocused] = useState(false);
