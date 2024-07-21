@@ -95,12 +95,13 @@ function Register(){
 
     const RegisterUser=async()=>{
         try{
+          setpushed("Registering you! It may take some while :)");
             const Registered = await axios.post(RegisterAPI,{
                 password: password,
                 username: name,
                 email: email,
             })
-            setpushed("Registering you! It may take some while :)");
+            
               navigate("/");
               
         }
