@@ -79,6 +79,7 @@ function Register(){
     const outerTheme = useTheme();
     const [name, SetName] = useState("");
     const [email, SetEmail] = useState("");
+    const [pushed, setpushed] = useState("Register");
     const [password, SetPassword] = useState("");
     const RegisterAPI = 'https://graphql-server-yourmedia.onrender.com/auth/register/';
     const navigate = useNavigate();
@@ -98,10 +99,10 @@ function Register(){
                 password: password,
                 username: name,
                 email: email,
-            }).then(()=>{console.log("User Registered"); navigate("/")})
-            .catch((err)=>{console.log("Couldn't register user", err.msg,
-
-            SetRgstSuccess("Couldn't Register User! Try Later"))});
+            })
+            setpushed("Registering you! It may take some while :)");
+              navigate("/");
+              
         }
         catch(error){
             console.log("Unknown Server Error, Try Later");
@@ -121,7 +122,7 @@ function Register(){
         autoComplete="off"
         >
         <center className="center">
-        <h2 className="heading">Register</h2>
+        <h2 className="heading">{pushed}</h2>
         <div className="input" style={{ marginTop: '5%' , marginBottom: '5%'}}>
         <ThemeProvider theme={customTheme(outerTheme)}>
         <TextField
